@@ -8,4 +8,5 @@ This are the features of the school
 * A student result is returned based on their name.
 * It is possible to list all the student with insufficient grade. This are grades lower than 50.
 
-There is also a utility class that makes a student name and dob URL-friendly and the school name also
+There is also a utility class that makes a student name and dob URL-friendly and the school name also.
+Unit testing is written for this application.
