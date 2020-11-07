@@ -13,7 +13,7 @@ public class School {
      public School(String schoolName)
      {
          this.schoolName = schoolName;
-         studentList = new HashSet<Student>();
+         this.studentList = new HashSet<Student>();
      }
 
     /**
@@ -22,7 +22,7 @@ public class School {
      */
     public void addStudent(Student student)
      {
-         studentList.add(student);
+         this.studentList.add(student);
      }
 
     /**
@@ -42,14 +42,13 @@ public class School {
     public String studentResult(String name)
     {
         StringBuilder result = new StringBuilder();
-        for(Student student: studentList)
+        for(Student student: this.studentList)
         {
-            HashMap<String, Integer> subjects = student.getSubjectsAndGrades();
             if(student.getStudentName().equalsIgnoreCase(name))
             {
-                for(Map.Entry<String, Integer> pair: subjects.entrySet())
+                for(Map.Entry<String, Integer> pair: student.getSubjectsAndGrades().entrySet())
                 {
-                         result.append("Student name ").append(name).append(", Subject:").append(pair.getKey()).append(" Grade:").append(pair.getValue()).append(" ");
+                    result.append("Student name ").append(name).append(", Subject:").append(pair.getKey()).append(" Grade:").append(pair.getValue()).append(" ");
                 }
             }
         }
@@ -63,10 +62,9 @@ public class School {
      */
     public void studentWhoFailed(String subjectName)
     {
-        for(Student student: studentList)
+        for(Student student: this.studentList)
         {
-            HashSet<Subject> subjects = student.getSubjects();
-            for(Subject s: subjects)
+            for(Subject s: student.getSubjects())
             {
                 if(s.getSubjectName().equalsIgnoreCase(subjectName))
                 {
@@ -89,7 +87,7 @@ public class School {
 
     public String getSchoolName()
     {
-        return schoolName;
+        return this.schoolName;
     }
 
 
